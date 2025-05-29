@@ -4,10 +4,10 @@
 int main()
 {
 	std::string numSmallTreatsStr;
-	std::cin >> numSmallTreatsStr;
 	std::string numMediumTreatsStr;
-	std::cin >> numMediumTreatsStr;
 	std::string numLargeTreatsStr;
+	std::cin >> numSmallTreatsStr;
+	std::cin >> numMediumTreatsStr;
 	std::cin >> numLargeTreatsStr;
 	int numSmallTreats = stoi(numSmallTreatsStr);
 	int numMediumTreats = stoi(numMediumTreatsStr);
