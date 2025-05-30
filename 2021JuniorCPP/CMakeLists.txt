@@ -12,5 +12,6 @@ endif()
 # Add source to this project's executable.
 add_executable (BoilingWater "BoilingWater.cpp")
 add_executable (SilentAuction "SilentAuction.cpp")
+add_executable (SecretInstructions "SecretInstructions.cpp")
 
 # TODO: Add tests and install targets if needed.
