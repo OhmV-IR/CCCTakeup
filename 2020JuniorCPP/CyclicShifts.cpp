@@ -24,7 +24,7 @@ int main() {
 		exit(0);
 	}
 	for (int i = 1; i < inputStr.size(); i++) {
-		if (StrContains(searchText, ShiftCharactersToEnd(&inputStr, i))) {
+		if (StrContains(searchText, ShiftCharactersToEnd(inputStr, i))) {
 			std::cout << "yes" << std::endl;
 			exit(0);
 		}
