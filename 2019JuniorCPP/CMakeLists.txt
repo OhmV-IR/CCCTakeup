@@ -12,5 +12,6 @@ add_executable (WinningScore "WinningScore.cpp")
 add_executable (Decompress "Decompress.cpp")
 add_executable (ColdCompress "ColdCompress.cpp")
 add_executable (Flipper "Flipper.cpp")
+add_executable (RuleOfThree "RuleOfThree.cpp")
 
 # TODO: Add tests and install targets if needed.
