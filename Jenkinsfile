@@ -1,17 +1,16 @@
 pipeline {
     agent none
     stages {
-        stage("Checkout"){
-		steps {
-			checkout scm
-		}
-	}
-
     	stage("Build"){
 		parallel {
 			stage("Windows build"){
 				agent { label "windows" }
 				stages {
+					stage("Checkout"){
+						steps {
+							checkout scm
+						}
+					}
 					stage("Configure"){
 						steps {
 							bat """
@@ -31,6 +30,11 @@ pipeline {
 			stage("Linux build"){
 				agent { label "linux" }
 				stages {
+					stage("Checkout"){
+						steps {
+							checkout scm
+						}
+					}
 					stage("Configure"){
 						steps {
 							sh """
