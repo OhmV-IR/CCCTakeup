@@ -34,11 +34,6 @@ pipeline {
                         stage("Checkout") {
                             steps { checkout scm }
                         }
-			stage("deps"){
-				steps {
-					sh "apt update && apt install -y build-essential cmake ninja-build"
-				}
-			}
                         stage("Configure") {
                             steps {
                                 sh """
