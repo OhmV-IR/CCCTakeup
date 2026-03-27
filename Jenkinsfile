@@ -36,7 +36,7 @@ pipeline {
                         }
 			stage("deps"){
 				steps {
-					sh "sudo apt install -y build-essential cmake ninja-build"
+					sh "apt update && apt install -y build-essential cmake ninja-build"
 				}
 			}
                         stage("Configure") {
