@@ -7,6 +7,12 @@ pipeline {
 
                 stage("Windows build") {
                     agent { label "windows" }
+                    matrix {
+			axis {
+				name 'BUILD_TYPE'
+				values 'Debug', 'Release'
+			}
+		    
                     stages {
                         stage("Checkout") {
                             steps { checkout scm }
@@ -16,7 +22,7 @@ pipeline {
                                 bat """
                                     if exist build rmdir /s /q build
                                     mkdir build
-                                    cmake -S . -B build
+                                    cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
                                 """
                             }
                         }
@@ -26,10 +32,16 @@ pipeline {
                             }
                         }
                     }
+}
                 }
 
                 stage("Linux build") {
                     agent { label "linux" }
+		    matrix {
+			axis {
+			    name 'BUILD_TYPE'
+		  	    values 'Debug', 'Release'
+			}	
                     stages {
                         stage("Checkout") {
                             steps { checkout scm }
@@ -39,7 +51,7 @@ pipeline {
                                 sh """
                                     rm -rf build
                                     mkdir build
-                                    cmake -S . -B build
+                                    cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
                                 """
                             }
                         }
@@ -49,6 +61,7 @@ pipeline {
                             }
                         }
                     }
+}
                 }
 
             }
