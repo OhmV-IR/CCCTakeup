@@ -31,6 +31,7 @@ pipeline {
                                     bat """
                                         if exist build rmdir /s /q build
                                         mkdir build
+                                        call "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat"
                                         cmake -S . -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
                                     """
                                 } else {
