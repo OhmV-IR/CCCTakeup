@@ -60,6 +60,7 @@ pipeline {
                     stage('Archive') {
                         steps {
                             archiveArtifacts artifacts: "build/**", fingerprint: true
+                            cleanWs()
                         }
                     }
 
